@@ -46,4 +46,4 @@ The project focuses on building a complete gameplay pipeline from **input → ab
 
 The following diagram illustrates the full combat pipeline and the prediction/rollback model used for projectile abilities.
 
-![System Architecture](./System Architecture.png)
+![System Architecture.png](./System Architecture.png)
