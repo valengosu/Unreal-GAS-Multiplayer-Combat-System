@@ -43,3 +43,7 @@ The project focuses on building a complete gameplay pipeline from **input → ab
 - Managing prediction confirmation and rollback using `FPredictionKey`  
 - Resolved an issue where **simulated clients did not play animation montages correctly**  
 - Ensured animation execution is properly synchronized across network roles  
+
+The following diagram illustrates the full combat pipeline and the prediction/rollback model used for projectile abilities.
+
+![System Architecture](./System Architecture.png)
