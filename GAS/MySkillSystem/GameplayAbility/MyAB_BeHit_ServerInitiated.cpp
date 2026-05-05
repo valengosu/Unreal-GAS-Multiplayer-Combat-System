@@ -27,13 +27,16 @@ void UMyAB_BeHit_ServerInitiated::ActivateAbility(const FGameplayAbilitySpecHand
 {
 	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
 	
-	AMyCharacter *Instigator = Cast<AMyCharacter>(const_cast<AActor*>(TriggerEventData->Instigator.Get()));
-	int Damage = Instigator->GetMyAttributeSet()->GetAttack();
+	if (ActorInfo->IsNetAuthority())
+	{
+		AMyCharacter *Instigator = Cast<AMyCharacter>(const_cast<AActor*>(TriggerEventData->Instigator.Get()));
+		int Damage = Instigator->GetMyAttributeSet()->GetAttack();
 	
-	UAbilitySystemComponent *ASC = ActorInfo->AbilitySystemComponent.Get();
-	FGameplayEffectSpecHandle Spec = ASC->MakeOutgoingSpec(UMyGE_Hurt::StaticClass(), 1.f, ASC->MakeEffectContext());
-	Spec.Data->SetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag(TEXT("GAS.Skill.Damage")), Damage);
-	ASC->ApplyGameplayEffectSpecToSelf(*Spec.Data.Get());
+		UAbilitySystemComponent *ASC = ActorInfo->AbilitySystemComponent.Get();
+		FGameplayEffectSpecHandle Spec = ASC->MakeOutgoingSpec(UMyGE_Hurt::StaticClass(), 1.f, ASC->MakeEffectContext());
+		Spec.Data->SetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag(TEXT("GAS.Skill.Damage")), Damage);
+		ASC->ApplyGameplayEffectSpecToSelf(*Spec.Data.Get());	
+	}
 	
 	FGameplayTag SkillTag = TriggerEventData->InstigatorTags.First();
 	FSkillConfigItem *Item = GetSkillConfigItem(ActorInfo->AvatarActor.Get(), SkillTag);
