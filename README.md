@@ -5,7 +5,7 @@
 
 ## 🎥 System play Video
 
-[![Watch the video]([https://img.youtube.com/vi/6jFna2a2Zhc/0.jpg)](https://www.youtube.com/watch?v=6jFna2a2Zhc](https://www.youtube.com/watch?v=YA250kQQQa0)
+[![Video](https://img.youtube.com/vi/YA250kQQQa0/0.jpg)](https://www.youtube.com/watch?v=YA250kQQQa0)
 
 
 A **multiplayer combat system** built in Unreal Engine using the **Gameplay Ability System (GAS)**, supporting both **melee** and **projectile-based abilities**.
