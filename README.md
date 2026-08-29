@@ -12,7 +12,7 @@
 
 A server-authoritative multiplayer combat system built with Unreal Engine's Gameplay Ability System (GAS), focused on ability lifecycle, client prediction, and reconciliation between predicted and authoritative gameplay state.
 
-**The project was designed around several practical problems that appear in real-time multiplayer combat**:
+## The project was designed around several practical problems that appear in real-time multiplayer combat:
 
 - Keeping gameplay-critical combat state authoritative on the server while still providing immediate feedback to the local player.
 - Managing predicted actions whose authoritative result may arrive later and may differ from the client's local state.
